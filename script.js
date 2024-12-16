@@ -42,6 +42,9 @@ const api = async () => {
     else if (actualData.weather[0].main == 'Smoke') {
         weather.src = "smoke.webp";
     }
+     else if (actualData.weather[0].main == 'Fog') {
+        weather.src = "smoke.webp";
+    }
 }
 // const apiKey = '9d7cd41fdfd557b2f953eb51e0fc4bfb';
 // const city = 'kolkata'; // Specify your city
