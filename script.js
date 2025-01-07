@@ -46,6 +46,44 @@ const api = async () => {
         weather.src = "smoke.webp";
     }
 }
+//for current temperature
+const API= async()=>{
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=kolkata&appid=9d7cd41fdfd557b2f953eb51e0fc4bfb`;
+    let data= await fetch(url);
+    let actualData=await data.json();
+    let temparature = Math.round(actualData.main.temp - 273.15);
+    windSpeed.innerText = `${Math.round(actualData.wind.speed)}km/h`;
+    humidity.innerText = `${actualData.main.humidity}%`;
+    temp.innerText = `${temparature}°c`;
+    console.log(actualData);
+    cityName.innerText = actualData.name;
+    w.innerText = actualData.weather[0].main;
+    if (actualData.weather[0].main == 'Haze') {
+        weather.src = "Haze.webp";
+    }
+    else if (actualData.weather[0].main == 'Clouds') {
+        weather.src = "clouds.png";
+    }
+    else if (actualData.weather[0].main == 'Rain') {
+        weather.src = "Rain.png";
+    }
+    else if (actualData.weather[0].main == 'Clear') {
+        weather.src = "Clear.png";
+    }
+    else if (actualData.weather[0].main == 'Mist') {
+        weather.src = "mist.webp";
+    }
+    else if (actualData.weather[0].main == 'Drizzles') {
+        weather.src = "Drizzles.jpeg";
+    }
+    else if (actualData.weather[0].main == 'Smoke') {
+        weather.src = "smoke.webp";
+    }
+     else if (actualData.weather[0].main == 'Fog') {
+        weather.src = "smoke.webp";
+    }
+}
+API();
 // const apiKey = '9d7cd41fdfd557b2f953eb51e0fc4bfb';
 // const city = 'kolkata'; // Specify your city
 // const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
